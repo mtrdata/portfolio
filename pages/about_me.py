@@ -10,7 +10,7 @@ with col1:
 
 with col2:
     colored_header(
-        label="Matthew Richards",
+        label="Matthew",
         description="Data Analyst with a passion for sport ⚽",
         color_name="orange-70",
     )
