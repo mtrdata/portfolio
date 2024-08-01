@@ -30,7 +30,6 @@ page = st.navigation(
 #######################
 # Assets
 #######################
-st.logo('assets/logo.png')
 st.sidebar.markdown("Made by <a href='https://www.linkedin.com/in/matthewrichardsdata/' style='color:orange;'>Matthew</a>", unsafe_allow_html=True)
 
 #######################
