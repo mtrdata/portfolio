@@ -77,11 +77,11 @@ with col1:
 
 
 with col3:
-    age = st.slider('Filter by Age', min_value=min_age, max_value=max_age, value=st.session_state.age, key='age')
-    rating = st.slider('Average Rating per Season', min_value=min_rating, max_value=max_rating, value=st.session_state.rating, key='rating')
-    sabr = st.slider('SABR Rating per Season', min_value=min_sabr, max_value=max_sabr, value=st.session_state.sabr, key='sabr')
-    ad_rating = st.slider('Adjusted Rating (Mean Average Rating across all seasons)', min_value=min_ad_rating, max_value=max_ad_rating, value=st.session_state.ad_rating, key='ad_rating')
-    ad_sabr = st.slider('Adjusted SABR Rating (Mean SABR Rating across all seasons)', min_value=min_ad_sabr, max_value=max_ad_sabr, value=st.session_state.ad_sabr, key='ad_sabr')
+    age = st.slider('Filter by Age', min_value=min_age, max_value=max_age, key='age')
+    rating = st.slider('Average Rating per Season', min_value=min_rating, max_value=max_rating, key='rating')
+    sabr = st.slider('SABR Rating per Season', min_value=min_sabr, max_value=max_sabr, key='sabr')
+    ad_rating = st.slider('Adjusted Rating (Mean Average Rating across all seasons)', min_value=min_ad_rating, max_value=max_ad_rating, key='ad_rating')
+    ad_sabr = st.slider('Adjusted SABR Rating (Mean SABR Rating across all seasons)', min_value=min_ad_sabr, max_value=max_ad_sabr, key='ad_sabr')
 
 # Filtering structure
 filtered_df = df.copy()
