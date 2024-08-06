@@ -11,6 +11,12 @@ st.write('This tool allows you to filter and compare player data. All data, name
 
 df = pd.read_csv('./mls_player_ratings.csv')
 
+# Remove the currency symbol (£), commas, and the suffix (p/a)
+df['Wage'] = df['Wage'].str.replace('£', '').str.replace(',', '').str.replace(' p/a', '')
+
+# Convert the cleaned "Wage" column to a numerical type
+df['Wage'] = pd.to_numeric(df['Wage'])
+
 # Calculate the average Adjusted SABR Rating for each position
 position_avg_ratings = df.groupby('Position')['Adjusted SABR Rating'].mean().round(2)
 
@@ -185,7 +191,37 @@ colored_header(
 filtered_df['Season'] = filtered_df['Season'].astype(str)
 
 # Display the dataframe
-st.data_editor(filtered_df)
+with st.expander('Table Of Full Data', expanded=True):
+    st.data_editor(filtered_df)
 
-# Shows the number of records displayed & explainer message
-st.write(f'Showing {len(filtered_df)} out of {len(df)} records. These records can be downloaded as a CSV file. Hover over the dataframe.')
+    # Shows the number of records displayed & explainer message
+    st.write(f'Showing {len(filtered_df)} out of {len(df)} records. These records can be downloaded as a CSV file. Hover over the dataframe.')
+
+colored_header(
+    label='Finding Value',
+    description='Scatterplot comparing player wages to their Adjusted SABR Ratings',
+    color_name='orange-70',
+    )
+
+with st.expander('Wage vs SABR Rating Scatterplot', expanded=False):
+    # Scatter plot using filtered_df
+    st.vega_lite_chart(
+        filtered_df,
+        {
+            "mark": {"type": "circle", "tooltip": True, "size": 100},  # Set size to make points bigger
+            "encoding": {
+                "x": {"field": "Adjusted SABR Rating", "type": "quantitative"},
+                "y": {"field": "Wage", "type": "quantitative"},
+                "color": {"field": "Position", "type": "nominal"},
+                "tooltip": [
+                    {"field": "Name", "type": "nominal"},
+                    {"field": "Club", "type": "nominal"},
+                    {"field": "Wage", "type": "quantitative"},
+                    {"field": "Adjusted SABR Rating", "type": "quantitative"},
+                    {"field": "Position", "type": "nominal"}
+                ]
+            },
+        },
+        theme="streamlit",
+        use_container_width=True
+    )
