@@ -14,7 +14,7 @@ with col2:
         description="Data Analyst with a passion for sport ⚽",
         color_name="orange-70",
     )
-    st.markdown("<a href='https://github.com/mtrdata555' style='color:orange;'>GitHub</a> 💾", unsafe_allow_html=True)
+    st.markdown("<a href='https://github.com/mtrdata' style='color:orange;'>GitHub</a> 💾", unsafe_allow_html=True)
     st.markdown("<a href='https://www.linkedin.com/in/matthewrichardsdata/' style='color:orange;'>LinkedIn</a> 🔗", unsafe_allow_html=True)
     
 #######################
