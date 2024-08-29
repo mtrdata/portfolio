@@ -28,7 +28,7 @@ colored_header(
     )
 st.write(
     """
-    - **Computer Science (BSc)** from Lancaster University
+    - **First Class Honours** - **Computer Science (BSc)** Degree from Lancaster University
     - Scouting certifications from the **Professional Football Scouts Association** & the **Football Association**
     - **13 years** experience as a live events presenter
     - Experience working with high profile clients such as **Nintendo**, **Red Bull** & **Microsoft**
